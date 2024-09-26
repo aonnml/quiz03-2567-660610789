@@ -77,7 +77,7 @@ export const DELETE = async (request: NextRequest) => {
   }
 
   readDB();
-  const check_message = DB.message.find((messege : any) => messege.messageId === body.message);
+  const check_message = DB.messages.find((messege : any) => messege.messageId === body.message);
   if(!check_message) {
     return NextResponse.json(
     {
