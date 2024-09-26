@@ -27,7 +27,7 @@ export const POST = async (request: NextRequest) => {
   }
 
   readDB();
-  const checkroom = DB.rooms.find((room : any) => room.roomName === body.roomName);
+  const checkroom = DB.rooms.find((room) => room.roomName === body.roomName);
   if(!checkroom) {
     return NextResponse.json(
     {

@@ -8,7 +8,7 @@ export const GET = async (request: NextRequest) => {
 
   const roomId = request.nextUrl.searchParams.get('roomId');
 
-  const check_room = DB.rooms.find((rooms : any) => rooms.roomId === roomId);
+  const check_room = DB.rooms.find((rooms) => rooms.roomId === roomId);
   
   if(!check_room){
   return NextResponse.json(
@@ -23,7 +23,7 @@ export const GET = async (request: NextRequest) => {
   return NextResponse.json(
     {
       ok: true,
-      messages: DB.messages.filter((messages : any) => messages.roomId === roomId),
+      messages: DB.messages.filter((messages) => messages.roomId === roomId),
     }
   )
 };
@@ -33,7 +33,7 @@ export const POST = async (request: NextRequest) => {
 
   const body = await request.json();
 
-  const check_room = DB.rooms.find((rooms : any) => rooms.roomId === body.roomId);
+  const check_room = DB.rooms.find((rooms) => rooms.roomId === body.roomId);
 
   if(!check_room){
     return NextResponse.json(
@@ -77,7 +77,7 @@ export const DELETE = async (request: NextRequest) => {
   }
 
   readDB();
-  const check_message = DB.messages.find((messege : any) => messege.messageId === body.message);
+  const check_message = DB.messages.find((messege) => messege.messageId === body.message);
   if(!check_message) {
     return NextResponse.json(
     {

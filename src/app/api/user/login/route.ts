@@ -8,7 +8,7 @@ export const POST = async (request: NextRequest) => {
 
   const body = await request.json();
 
-  const check = DB.users.find((check : any) => check.username === body.username && check.password === body.password);
+  const check = DB.users.find((check) => check.username === body.username && check.password === body.password);
 
   if(!check) {
     return NextResponse.json( 
